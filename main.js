@@ -238,11 +238,11 @@ healthcheck(callback) {
 
          if(error){
             callback(data,error);
-        }
-        else {
+         }
+         else {
             if(data.body){
                 let bodyObj = JSON.parse(data.body);
-                ticket = bodyObj.result
+                let ticket = bodyObj.result
                     let changeTicket = {
                         change_ticket_number: ticket.number,
                         active: ticket.active,
@@ -252,8 +252,8 @@ healthcheck(callback) {
                         work_end: ticket.work_end,
                         change_ticket_key: ticket.sys_id,
                     };
+                callback(changeTicket,error);
             }
-            callback(changeTicket,error);
         }
 
      });
